@@ -10,7 +10,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t $IMAGE_URI .
+      - docker build -t https://github.com/SaqibMehraj/Demo-app-nginx.git#main .
   post_build:
     commands:
       - echo Build completed on `date`
