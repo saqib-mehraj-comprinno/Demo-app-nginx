@@ -5,10 +5,12 @@ phases:
       docker: 18
   pre_build:
     commands:
-      - echo Nothing to do in the pre_build phase...
+      - CODEBUILD_RESOLVED_SOURCE_VERSION="${CODEBUILD_RESOLVED_SOURCE_VERSION:-$IMAGE_TAG}"
   build:
     commands:
       - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t $IMAGE_URI .
   post_build:
     commands:
       - echo Build completed on `date`
