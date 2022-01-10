@@ -17,9 +17,7 @@ node {
     }
   }
   stage('build') {
-    steps{
       echo 'Deploying'
       sh 'deploy.sh'
-    }
   }
 }
