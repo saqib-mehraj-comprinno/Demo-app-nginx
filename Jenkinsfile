@@ -18,6 +18,6 @@ node {
   }
   stage('build') {
       echo 'Deploying'
-      sh 'kubectl create deployment nginx --image nginx -n test' 
+      sh 'kubectl apply -f k8nginx.yaml -n test' 
   }
 }
