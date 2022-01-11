@@ -19,6 +19,6 @@ node {
   }
   stage('build') {
       echo 'Deploying'
-      sh 'kubectl apply -f k8nginx.yaml -n test' 
+      sh 'kubectl apply -f k8nginx.yaml -n jenkins' 
   }
 }
