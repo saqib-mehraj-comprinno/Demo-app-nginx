@@ -35,5 +35,4 @@ node {
        sh'chmod +x kubectl' 
       sh '/home/jenkins/agent/workspace/sonarqube/kubectl --help'
     }
-  }
 }
