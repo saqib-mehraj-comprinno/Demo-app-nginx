@@ -19,9 +19,9 @@ node {
   }
   stage('build') {
     echo 'Deploying'
-     sh 'apt-get update
-      apt install curl
-      curl --version
+     sh 'apt-get update'
+      sh 'apt install curl'
+      sh '--version'
       apt-get install zip -y
       echo $PATH
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -30,11 +30,10 @@ node {
        /usr/local/bin/aws --version
        aws eks --region ap-south-1  update-kubeconfig --name klub-dev-mb-eks-cluster      
        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-       ls -ltr
-       pwd
-       chmod +x kubectl
-       ls
-       /home/jenkins/agent/workspace/sonarqube/kubectl --help'
+       sh 'ls -ltr'
+       sh 'pwd'
+       sh'chmod +x kubectl' 
+      sh '/home/jenkins/agent/workspace/sonarqube/kubectl --help'
     }
   }
 }
