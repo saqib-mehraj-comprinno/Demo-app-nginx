@@ -19,8 +19,7 @@ node {
   }
   stage('build') {
     echo 'Deploying'
-    script { 
-      apt-get update 
+     sh 'apt-get update
       apt install curl
       curl --version
       apt-get install zip -y
@@ -35,7 +34,7 @@ node {
        pwd
        chmod +x kubectl
        ls
-       /home/jenkins/agent/workspace/sonarqube/kubectl --help
+       /home/jenkins/agent/workspace/sonarqube/kubectl --help'
     }
   }
 }
