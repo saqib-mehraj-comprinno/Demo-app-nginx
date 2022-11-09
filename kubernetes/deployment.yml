@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: Service_NAME
-  name: Service_NAME
+    app: SERVICE_NAME
+  name: SERVICE_NAME
   namespace: NAMESPACE
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: Service_NAME
+      app: SERVICE_NAME
   template:
     metadata:
       labels:
-        app: Service_NAME
+        app: SERVICE_NAME
     spec:
       containers:
-        - image: ECR_REPOSITORY/RESPOSITORY_NAME:TAG
-          name: Service_NAME
+        - image: CONTAINER_IMAGE
+          name: SERVICE_NAME
           ports:
             - containerPort: 80
