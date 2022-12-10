@@ -10,7 +10,7 @@ metadata:
         alb.ingress.kubernetes.io/target-type: "ip"
         alb.ingress.kubernetes.io/scheme: "LB_SCHEME"
 spec:
-  ingressClassName: nginx-example
+  ingressClassName: INGRESS_CLASS_NAME
   rules:
   - http:
       paths:
