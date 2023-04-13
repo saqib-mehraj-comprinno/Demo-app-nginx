@@ -2,23 +2,22 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: nginx
+  namespace: cicd
 spec:
-  destination:
-    name: ''
-    namespace: cicd
-    server: 'https://kubernetes.default.svc'
+  project: default
+
   source:
-    path: argocd
     repoURL: 'https://github.com/saqib-mehraj-comprinno/Demo-app-nginx.git'
     targetRevision: cicd
-  sources: []
-  project: nginx
+    path: argocd
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: cicd
+
   syncPolicy:
     syncOptions:
-      - Validate=false
-    retry:
-      limit: 2
-      backoff:
-        duration: 5s
-        maxDuration: 3m0s
-        factor: 2
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
