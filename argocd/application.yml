@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx
+spec:
+  destination:
+    name: ''
+    namespace: cicd
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: argocd
+    repoURL: 'https://github.com/saqib-mehraj-comprinno/Demo-app-nginx.git'
+    targetRevision: HEAD
+  sources: []
+  project: nginx
+  syncPolicy:
+    syncOptions:
+      - Validate=false
+    retry:
+      limit: 2
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
